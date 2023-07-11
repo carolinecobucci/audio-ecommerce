@@ -1,0 +1,27 @@
+.categoryContainer {
+  display: flex;
+  width: 24.5rem;
+  align-items: flex-start;
+  gap: 0.6875rem;
+  margin-bottom: 1.25rem;
+}
+
+.category {
+  display: flex;
+  height: 1.5625rem;
+  padding: 0.625rem 0.9375rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 1.875rem;
+  color: #7f7f7f;
+
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.category:hover {
+  background: #0acf83;
+  color: #ffffff;
+}
