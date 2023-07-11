@@ -1,11 +1,17 @@
-import styles from "./InputBox.module.css";
+import styles from "./InputSearch.module.css";
 
-const InputBox = () => {
+const InputSearch = () => {
   return (
     <div>
-      <input type="text" name="" id="" />
+      <input
+        className={styles.search}
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Search headphone"
+      />
     </div>
   );
 };
 
-export default InputBox;
+export default InputSearch;
