@@ -1,7 +1,7 @@
+import styles from "./SignUpPage.module.css";
 import Button from "../Button/Button";
-import styles from "./SignInPage.module.css";
 
-const SignInPage = () => {
+const SignUpPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -23,16 +23,26 @@ const SignInPage = () => {
           id="password"
           placeholder="Password"
         />
-        <a className={styles.forgotPassword}>Forgot Password</a>
       </div>
       <div className={styles.signInContainer}>
-        <Button type={"submit"} buttonText={"Sign In"} />
-        <p className={styles.createAccount}>
-          Didn't have any account? <a className={styles.signUpHere}>Sign Up here</a>
+        <Button type={"submit"} buttonText={"Sign Up"} />
+        <div className={styles.socialLoginContainer}>
+          <div className={styles.socialIcons}>
+            <img src="/src/assets/apple-icon.svg" alt="apple icon" />
+          </div>
+          <div className={styles.socialIcons}>
+            <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
+          </div>
+          <div className={styles.socialIcons}>
+            <img src="/src/assets/google-icon.svg" alt="google icon" />
+          </div>
+        </div>
+        <p className={styles.signIn}>
+          If you have an account? <a className={styles.signUpHere}>Sign In here </a>
         </p>
       </div>
     </div>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;
