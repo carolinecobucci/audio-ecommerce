@@ -36,6 +36,7 @@
 
 .reviewContainer {
   display: flex;
-  justify-content: space-around;
+  width: 9rem;
+  justify-content: space-between;
   align-items: center;
 }

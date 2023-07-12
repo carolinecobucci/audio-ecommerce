@@ -45,6 +45,8 @@
 
 .featureProductsContainer {
   display: flex;
+  width: 23rem;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
