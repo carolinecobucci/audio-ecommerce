@@ -8,20 +8,28 @@
 
 .category {
   display: flex;
-  height: 1.5625rem;
+  height: 1.5rem;
   padding: 0.625rem 0.9375rem;
   align-items: center;
   gap: 0.625rem;
   border-radius: 1.875rem;
   color: #7f7f7f;
-
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.25rem;
   letter-spacing: 0.0125rem;
 }
 
-.category:hover {
+.radio:checked + .category {
   background: #0acf83;
   color: #ffffff;
+}
+
+.radio:hover + .category {
+  background: #0acf83;
+  color: #ffffff;
+}
+
+.radio {
+  display: none;
 }
