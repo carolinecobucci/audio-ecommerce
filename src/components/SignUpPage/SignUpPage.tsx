@@ -28,9 +28,6 @@ const SignUpPage = () => {
         <Button type={"submit"} buttonText={"Sign Up"} />
         <div className={styles.socialLoginContainer}>
           <div className={styles.socialIcons}>
-            <img src="/src/assets/apple-icon.svg" alt="apple icon" />
-          </div>
-          <div className={styles.socialIcons}>
             <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
           </div>
           <div className={styles.socialIcons}>
