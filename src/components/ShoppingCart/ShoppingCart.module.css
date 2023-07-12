@@ -1,0 +1,68 @@
+.container {
+  width: 422px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 23rem;
+  margin-bottom: 2rem;
+}
+
+.shoppingCart {
+  color: black;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.totalContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 23rem;
+  margin-top: 17rem;
+}
+
+.totalItems {
+  color: black;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  opacity: 0.6000000238418579;
+}
+
+.totalDolars {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.checkoutButton {
+  display: flex;
+  width: 20rem;
+  height: 3.125rem;
+  padding: 1.25rem 1.875rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.625rem;
+  background: #0acf83;
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  border: none;
+  margin-top: 1.3rem;
+  margin-bottom: 2rem;
+}
