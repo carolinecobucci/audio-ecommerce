@@ -1,0 +1,113 @@
+.container {
+  width: 422px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 23rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+}
+
+.price {
+  color: #0acf83;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.productName {
+  color: black;
+  font-family: Montserrat;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.overviewContainer {
+  display: flex;
+  gap: 2.5rem;
+  width: 23rem;
+  margin-top: 0.7rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  margin-bottom: 2rem;
+}
+
+.overview {
+  padding-bottom: 0.5rem;
+}
+
+.imagesContainer {
+  display: flex;
+  width: 17rem;
+  padding: 2.7rem 1.2rem 2.7rem 1.2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  background: #f6f6f6;
+}
+
+.reviews {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  width: 23rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bottonSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  width: 26.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.anotherProductContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 23rem;
+  margin-bottom: 1.5rem;
+}
+
+.anotherProduct {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.seeAll {
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
