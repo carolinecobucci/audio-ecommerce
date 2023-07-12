@@ -1,0 +1,44 @@
+.container {
+  width: 23rem;
+  margin-bottom: 2rem;
+}
+
+.userProfile {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  width: 23rem;
+  margin-bottom: 1rem;
+}
+
+.userNameRate {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.starsContainer {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.starReview {
+  width: 1rem;
+}
+
+.reviewText {
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  margin-left: 3.2rem;
+  margin-right: 4rem;
+  margin-bottom: 1rem;
+}
+
+.reviewImg {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
