@@ -1,0 +1,80 @@
+.container {
+  width: 422px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 23rem;
+  margin-bottom: 2rem;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 20rem;
+  margin-bottom: 1.3rem;
+}
+
+.featureProducts {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.seeAll {
+  color: black;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  letter-spacing: 0.0125rem;
+}
+
+.filter {
+  display: flex;
+  width: 20.4375rem;
+  height: 2.5625rem;
+  padding: 0.625rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  border: 1px solid #bababa;
+  background: #fff;
+}
+
+.filterImg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.filterText {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.0125rem;
+}
+
+.productsBg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 26.5rem;
+  background-color: #f6f6f6;
+  border-radius: 1.875rem 1.875rem 0rem 0rem;
+  margin-top: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  padding-inline: 1rem;
+  padding-bottom: 1.5rem;
+}
