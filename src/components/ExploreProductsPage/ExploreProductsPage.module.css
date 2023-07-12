@@ -78,3 +78,10 @@
   padding-inline: 1rem;
   padding-bottom: 1.5rem;
 }
+
+.productsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 23rem;
+}

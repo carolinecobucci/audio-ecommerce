@@ -17,7 +17,14 @@ const ExploreProductsPage = () => {
         <p className={styles.filterText}>Filter</p>
       </div>
       <div className={styles.productsBg}>
-        <ProductGrid />
+        <div className={styles.productsGrid}>
+          <ProductGrid />
+          <ProductGrid />
+          <ProductGrid />
+          <ProductGrid />
+          <ProductGrid />
+          <ProductGrid />
+        </div>
       </div>
     </div>
   );
