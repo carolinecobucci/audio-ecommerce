@@ -27,6 +27,14 @@ const SignInPage = () => {
       </div>
       <div className={styles.signInContainer}>
         <Button type={"submit"} buttonText={"Sign In"} />
+        <div className={styles.socialLoginContainer}>
+          <div className={styles.socialIcons}>
+            <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
+          </div>
+          <div className={styles.socialIcons}>
+            <img src="/src/assets/google-icon.svg" alt="google icon" />
+          </div>
+        </div>
         <p className={styles.createAccount}>
           Didn't have any account? <a className={styles.signUpHere}>Sign Up here</a>
         </p>
