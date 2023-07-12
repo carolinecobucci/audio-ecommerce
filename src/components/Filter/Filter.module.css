@@ -1,0 +1,81 @@
+.container {
+  width: 422px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 1.875rem 1.875rem 0rem 0rem;
+  background: white;
+  padding-bottom: 2rem;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 23rem;
+  margin-bottom: 2rem;
+}
+
+.filter {
+  color: black;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.titles {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  width: 23rem;
+  margin-bottom: 1rem;
+}
+
+.sortByCheckboxes {
+  display: flex;
+  gap: 0.6rem;
+  width: 22rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.checkbox {
+  display: none;
+}
+
+.sortby {
+  display: flex;
+  height: 1.5rem;
+  padding: 1.1rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.7rem;
+  border: 1px solid #7f7f7f;
+  background: white;
+  color: black;
+  font-family: DM Sans;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
+
+.checkbox:checked + .sortby {
+  border-radius: 0.7rem;
+  border: 1px solid #0acf83;
+  background: #0acf83;
+  color: white;
+}
+
+.checkbox:hover + .sortby {
+  border-radius: 0.7rem;
+  border: 1px solid #0acf83;
+  background: #0acf83;
+  color: white;
+}
