@@ -56,14 +56,8 @@
 }
 
 .imagesContainer {
-  display: flex;
-  width: 17rem;
-  padding: 2.7rem 1.2rem 2.7rem 1.2rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.625rem;
-  background: #f6f6f6;
+  width: 380px;
+  margin-left: 0.7rem;
 }
 
 .reviews {

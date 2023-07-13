@@ -1,0 +1,31 @@
+.carousel {
+  /* margin-left: 6rem; */
+  margin: auto;
+  cursor: grab;
+  overflow: hidden;
+  /* max-width: 23rem; */
+}
+
+.inner {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.img1 {
+  width: 16rem;
+  padding: 2.7rem 1.2rem 2.7rem 1.2rem;
+  border-radius: 0.625rem;
+  background: #f6f6f6;
+  pointer-events: none;
+}
+
+.img2 {
+  width: 16rem;
+  pointer-events: none;
+  height: 21.2rem;
+}
+
+.itemContainer {
+  /* min-height: 16rem; */
+  /* min-width: 25rem; */
+}

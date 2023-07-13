@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "feather-icons": "^4.29.0",
+    "framer-motion": "^10.12.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

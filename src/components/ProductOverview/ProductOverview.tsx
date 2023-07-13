@@ -1,4 +1,5 @@
 import Button from "../Button/Button";
+import CarouselProductOverview from "../CarouselProductOverview/CarouselProductOverview";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import ReviewList from "../ReviewList/ReviewList";
 import styles from "./ProductOverview.module.css";
@@ -20,11 +21,12 @@ const ProductOverview = () => {
         <p className={styles.features}>Features</p>
       </div>
       <div className={styles.imagesContainer}>
-        <img
+        <CarouselProductOverview />
+        {/* <img
           className={styles.productImg}
           src="/src/assets/headphone-overview.png"
           alt="headphone"
-        />
+        /> */}
       </div>
       <p className={styles.reviews}>Reviews (3)</p>
       <ReviewList />
