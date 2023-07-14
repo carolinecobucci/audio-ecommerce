@@ -13,9 +13,8 @@ const HomePage = () => {
       </div>
       <InputSearch />
       <div className={styles.productsBg}>
-        <CarouselCategory />
+        <CarouselCategory id={"home-page"} />
         <Banner />
-
         <div className={styles.featureProductsContainer}>
           <p className={styles.featureProducts}>Feature Products</p>
           <p className={styles.seeAll}>See All</p>

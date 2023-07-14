@@ -2,7 +2,16 @@ import styles from "./CarouselCategory.module.css";
 import { Fragment } from "react";
 import { motion } from "framer-motion";
 
-const CarouselCategory = () => {
+interface CarouselPropTypes {
+  id: string;
+}
+// essa props é um workaround ja que no momento os dois carousel estao
+// sendo renderizados na mesma pagina
+// apos a implementacao de rotas, nao existiram mais 2 carousels IDENTICOS
+// numa mesma pagina
+// IDs sao unicos
+
+const CarouselCategory = ({ id }: CarouselPropTypes) => {
   return (
     <Fragment>
       <motion.div className={styles.carousel} whileTap={{ cursor: "grabbing" }}>
@@ -15,29 +24,29 @@ const CarouselCategory = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.div className={styles.item}>
-            <input className={styles.radio} type="radio" name="category" id="headphone" />
-            <label className={styles.category} htmlFor="headphone">
+            <input className={styles.radio} type="radio" name="category" id={`${id}-headphone`} />
+            <label className={styles.category} htmlFor={`${id}-headphone`}>
               Headphone
             </label>
           </motion.div>
 
           <motion.div className={styles.item}>
-            <input className={styles.radio} type="radio" name="category" id="headband" />
-            <label className={styles.category} htmlFor="headband">
+            <input className={styles.radio} type="radio" name="category" id={`${id}-headband`} />
+            <label className={styles.category} htmlFor={`${id}-headband`}>
               Headband
             </label>
           </motion.div>
 
           <motion.div className={styles.item}>
-            <input className={styles.radio} type="radio" name="category" id="earpads" />
-            <label className={styles.category} htmlFor="earpads">
+            <input className={styles.radio} type="radio" name="category" id={`${id}-earpads`} />
+            <label className={styles.category} htmlFor={`${id}-earpads`}>
               Earpads
             </label>
           </motion.div>
 
           <motion.div className={styles.item}>
-            <input className={styles.radio} type="radio" name="category" id="cable" />
-            <label className={styles.category} htmlFor="cable">
+            <input className={styles.radio} type="radio" name="category" id={`${id}-earpads`} />
+            <label className={styles.category} htmlFor={`${id}-earpads`}>
               Cable
             </label>
           </motion.div>
