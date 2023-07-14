@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import CategoryList from "../CategoryList/CategoryList";
+import CarouselCategory from "../CarouselCategory/CarouselCategory";
 import styles from "./Filter.module.css";
 
 const Filter = () => {
@@ -10,7 +10,7 @@ const Filter = () => {
         <img className={styles.closeIcon} src="/src/assets/close-icon.svg" alt="close" />
       </div>
       <h2 className={styles.titles}>Category</h2>
-      <CategoryList />
+      <CarouselCategory />
       <h2 className={styles.titles}>Sort by</h2>
       <div className={styles.sortByCheckboxes}>
         <input

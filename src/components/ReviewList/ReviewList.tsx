@@ -11,7 +11,7 @@ const ReviewList = () => {
         />
         <div className={styles.userNameRate}>
           <p className={styles.userName}>Madelina</p>
-          <p className={styles.userRate}>
+          <div className={styles.userRate}>
             <div className={styles.starsContainer}>
               <img
                 className={styles.starReview}
@@ -39,7 +39,7 @@ const ReviewList = () => {
                 alt="stars"
               />
             </div>
-          </p>
+          </div>
         </div>
       </div>
       <p className={styles.reviewText}>
@@ -54,7 +54,7 @@ const ReviewList = () => {
         />
         <div className={styles.userNameRate}>
           <p className={styles.userName}>Irfan</p>
-          <p className={styles.userRate}>
+          <div className={styles.userRate}>
             <div className={styles.starsContainer}>
               <img
                 className={styles.starReview}
@@ -82,10 +82,10 @@ const ReviewList = () => {
                 alt="stars"
               />
             </div>
-          </p>
+          </div>
         </div>
       </div>
-      <p className={styles.reviewText}>
+      <div className={styles.reviewText}>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.
         <div className={styles.reviewImg}>
@@ -105,7 +105,7 @@ const ReviewList = () => {
             alt="headphone"
           />
         </div>
-      </p>
+      </div>
 
       <div className={styles.userProfile}>
         <img
@@ -115,7 +115,7 @@ const ReviewList = () => {
         />
         <div className={styles.userNameRate}>
           <p className={styles.userName}>Ravi Putra</p>
-          <p className={styles.userRate}>
+          <div className={styles.userRate}>
             <div className={styles.starsContainer}>
               <img
                 className={styles.starReview}
@@ -143,7 +143,7 @@ const ReviewList = () => {
                 alt="stars"
               />
             </div>
-          </p>
+          </div>
         </div>
       </div>
       <p className={styles.reviewText}>Excepteur sint occaecat cupidatat non proident</p>

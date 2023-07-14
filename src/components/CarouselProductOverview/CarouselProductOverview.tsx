@@ -1,27 +1,13 @@
-import { useState, useEffect, useRef, Fragment } from "react";
-import styles from "./CarouselProductOverview.module.css";
+import { Fragment } from "react";
 import { motion } from "framer-motion";
+import styles from "./CarouselProductOverview.module.css";
 import headphone1 from "/src/assets/headphone-overview.png";
 import headphone2 from "/src/assets/headphone-overview-2.png";
 
 const CarouselProductOverview = () => {
-  //   const carousel = useRef<HTMLDivElement>(null);
-  //   const [width, setWidth] = useState<number>(0);
-
-  //   useEffect(() => {
-  //     if (carousel.current) {
-  //       setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
-  //     }
-  //   }, []);
-
   return (
     <Fragment>
-      <motion.div
-        // ref={carousel}
-        className={styles.carousel}
-        // whileDrag={{ cursor: "grabbing" }}
-        whileTap={{ cursor: "grabbing" }}
-      >
+      <motion.div className={styles.carousel} whileTap={{ cursor: "grabbing" }}>
         <motion.div
           className={styles.inner}
           drag="x"

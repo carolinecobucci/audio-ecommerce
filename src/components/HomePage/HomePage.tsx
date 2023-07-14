@@ -1,7 +1,7 @@
 import Banner from "../Banner/Banner";
-import CategoryList from "../CategoryList/CategoryList";
+import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
+import CarouselCategory from "../CarouselCategory/CarouselCategory";
 import InputSearch from "../InputSearch/InputSearch";
-import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -13,14 +13,16 @@ const HomePage = () => {
       </div>
       <InputSearch />
       <div className={styles.productsBg}>
-        <CategoryList />
+        <CarouselCategory />
         <Banner />
 
         <div className={styles.featureProductsContainer}>
           <p className={styles.featureProducts}>Feature Products</p>
           <p className={styles.seeAll}>See All</p>
         </div>
-        <ProductGrid />
+        <div className={styles.carouselContainer}>
+          <CarouselAllProducts />
+        </div>
       </div>
     </div>
   );

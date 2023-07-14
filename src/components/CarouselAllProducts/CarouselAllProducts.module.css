@@ -1,0 +1,13 @@
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.item img {
+  pointer-events: none;
+}
