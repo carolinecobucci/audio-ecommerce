@@ -1,6 +1,33 @@
 import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./ExploreProductsPage.module.css";
 
+const products = [
+  {
+    productName: "TMA-2 HD Wireless",
+    productPrice: "USD 350",
+    rate: "4.6",
+    reviewNumber: "86 Reviews",
+  },
+  {
+    productName: "TMA-2 HD Wireless",
+    productPrice: "USD 350",
+    rate: "4.6",
+    reviewNumber: "86 Reviews",
+  },
+  {
+    productName: "TMA-2 HD Wireless",
+    productPrice: "USD 350",
+    rate: "4.6",
+    reviewNumber: "86 Reviews",
+  },
+  {
+    productName: "TMA-2 HD Wireless",
+    productPrice: "USD 350",
+    rate: "4.6",
+    reviewNumber: "86 Reviews",
+  },
+];
+
 const ExploreProductsPage = () => {
   return (
     <div className={styles.container}>
@@ -18,12 +45,15 @@ const ExploreProductsPage = () => {
       </div>
       <div className={styles.productsBg}>
         <div className={styles.productsGrid}>
-          <ProductGrid />
-          <ProductGrid />
-          <ProductGrid />
-          <ProductGrid />
-          <ProductGrid />
-          <ProductGrid />
+          {products.map((product, i) => (
+            <ProductGrid
+              key={i}
+              productName={product.productName}
+              productPrice={product.productPrice}
+              rate={product.rate}
+              reviewNumber={product.reviewNumber}
+            />
+          ))}
         </div>
       </div>
     </div>
