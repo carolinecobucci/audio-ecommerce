@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import styles from "./SignInPage.module.css";
 
 const SignInPage = () => {
+  const [signUpFlag, setSignUpFlag] = useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -26,7 +29,12 @@ const SignInPage = () => {
         <a className={styles.forgotPassword}>Forgot Password</a>
       </div>
       <div className={styles.signInContainer}>
-        <Button type={"submit"} buttonText={"Sign In"} />
+        {signUpFlag ? (
+          <Button type={"submit"} buttonText={"Sign Up"} />
+        ) : (
+          <Button type={"submit"} buttonText={"Sign In"} />
+        )}
+
         <div className={styles.socialLoginContainer}>
           <div className={styles.socialIcons}>
             <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
@@ -35,9 +43,21 @@ const SignInPage = () => {
             <img src="/src/assets/google-icon.svg" alt="google icon" />
           </div>
         </div>
-        <p className={styles.createAccount}>
-          Didn't have any account? <a className={styles.signUpHere}>Sign Up here</a>
-        </p>
+        {signUpFlag ? (
+          <p className={styles.createAccount}>
+            Don't have any account?{" "}
+            <a className={styles.signUpHere} onClick={() => setSignUpFlag(false)}>
+              Sign Up here
+            </a>
+          </p>
+        ) : (
+          <p className={styles.createAccount}>
+            If you have an account,{" "}
+            <a className={styles.signUpHere} onClick={() => setSignUpFlag(true)}>
+              Sign In here
+            </a>
+          </p>
+        )}
       </div>
     </div>
   );

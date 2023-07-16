@@ -119,4 +119,5 @@
 .signUpHere {
   color: #0acf83;
   text-decoration: underline;
+  cursor: pointer;
 }
