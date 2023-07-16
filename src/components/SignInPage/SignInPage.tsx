@@ -1,8 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import styles from "./SignInPage.module.css";
+import { useNavigate } from "react-router-dom";
+
+import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignInPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const signIn = async (): Promise<void> => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/"); // depois de usuario criado com sucesso, navega para HOME
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    // verifica se usuario no firebase ja esta logado
+    // se estiver, ja vai pra home
+    // firebase ja persiste usuario, muito util!
+    if (auth?.currentUser?.email) {
+      navigate("/");
+    }
+  }, [navigate]);
+
   const [signUpFlag, setSignUpFlag] = useState(false);
 
   return (
@@ -18,6 +44,7 @@ const SignInPage = () => {
           name="email"
           id="email"
           placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className={styles.passwordInput}
@@ -25,14 +52,25 @@ const SignInPage = () => {
           name="password"
           id="password"
           placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
         />
         <a className={styles.forgotPassword}>Forgot Password</a>
       </div>
       <div className={styles.signInContainer}>
         {signUpFlag ? (
+          // TODO passar o metodo de onclick por parametro
+          // OU modificar o Button para ser somente de estilo
+          // <Button type={"submit"} buttonText={"Sign Up"} />
           <Button type={"submit"} buttonText={"Sign Up"} />
         ) : (
-          <Button type={"submit"} buttonText={"Sign In"} />
+          // <Button type={"submit"} buttonText={"Sign In"} />
+          <button
+            onClick={() => {
+              signIn().catch((error) => console.error(error));
+            }}
+          >
+            Sign In
+          </button>
         )}
 
         <div className={styles.socialLoginContainer}>

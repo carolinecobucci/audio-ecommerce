@@ -1,6 +1,6 @@
 import "./App.css";
 import ExploreProductsPage from "./components/ExploreProductsPage/ExploreProductsPage";
-import Filter from "./components/Filter/Filter";
+// import Filter from "./components/Filter/Filter";
 import HomePage from "./components/HomePage/HomePage";
 import ProductOverview from "./components/ProductOverview/ProductOverview";
 import SearchPage from "./components/SearchPage/SearchPage";
