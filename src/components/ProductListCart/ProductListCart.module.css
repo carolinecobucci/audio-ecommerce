@@ -49,4 +49,27 @@
 
 .counterContainer {
   display: flex;
+  justify-content: space-between;
+  width: 14rem;
+}
+
+.counter {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.counterMinus,
+.counterPlus {
+  display: flex;
+  width: 1.875rem;
+  height: 1.875rem;
+  padding: 0.625rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.625rem;
+  border: 1px solid #bababa;
+  background: #fff;
 }

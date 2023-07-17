@@ -12,6 +12,15 @@ const ProductListCart = () => {
           <h2 className={styles.productPrice}>USD 350</h2>
         </div>
         <div className={styles.counterContainer}>
+          <div className={styles.counter}>
+            <button className={styles.counterMinus}>
+              <img src="/src/assets/minus-icon.svg" alt="minus" />
+            </button>
+            <p>1</p>
+            <button className={styles.counterPlus}>
+              <img src="/src/assets/plus-icon.svg" alt="plus" />
+            </button>
+          </div>
           <img src="/src/assets/trash-light.svg" alt="delete" />
         </div>
       </div>
