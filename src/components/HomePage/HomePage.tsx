@@ -4,19 +4,19 @@ import CarouselCategory from "../CarouselCategory/CarouselCategory";
 // import InputSearch from "../InputSearch/InputSearch";
 import styles from "./HomePage.module.css";
 import { Link } from "react-router-dom";
-// import { signOut } from "firebase/auth";
-// import { auth } from "../../config/firebase";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  // const logout = async (): Promise<void> => {
-  //   try {
-  //     await signOut(auth);
-  //     navigate("/sign-in");
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  const logout = async (): Promise<void> => {
+    try {
+      await signOut(auth);
+      navigate("/sign-in");
+    } catch (err) {
+      console.error(err);
+    }
+  };
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -26,7 +26,13 @@ const HomePage = () => {
 
   return (
     <div className={styles.container}>
-      {/* <button onClick={logout}>Logout</button> */}
+      <button
+        onClick={() => {
+          logout().catch((error) => console.error(error));
+        }}
+      >
+        Logout
+      </button>
       <div className={styles.userGreetingContainer}>
         <h1 className={styles.userGreeting}>Hi, Andrea</h1>
         <p className={styles.userGreetingSubText}>What are you looking for today?</p>

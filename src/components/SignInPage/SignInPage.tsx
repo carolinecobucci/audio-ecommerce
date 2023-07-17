@@ -9,7 +9,7 @@ const SignInPage = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const signIn = async (): Promise<void> => {
+  const signUp = async (): Promise<void> => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate("/"); // depois de usuario criado com sucesso, navega para HOME
@@ -18,7 +18,7 @@ const SignInPage = () => {
     }
   };
 
-  const signInWithGoogle = async (): Promise<void> => {
+  const signUpWithGoogle = async (): Promise<void> => {
     try {
       await signInWithPopup(auth, googleProvider);
       navigate("/");
@@ -36,7 +36,7 @@ const SignInPage = () => {
     }
   }, [navigate]);
 
-  const [signUpFlag, setSignUpFlag] = useState(false);
+  const [signUpFlag, setSignUpFlag] = useState(true);
 
   return (
     <div className={styles.container}>
@@ -68,19 +68,15 @@ const SignInPage = () => {
           <button
             className={styles.signUpButton}
             onClick={() => {
-              signIn().catch((error) => console.error(error));
+              signUp().catch((error) => console.error(error));
             }}
           >
             Sign Up
           </button>
         ) : (
-          <button
-            className={styles.signInButton}
-            onClick={() => {
-              signIn().catch((error) => console.error(error));
-            }}
-          >
+          <button className={styles.signInButton}>
             Sign In
+            {/* TODO criar metodo de SIGN IN (usuario ja existente) */}
           </button>
         )}
 
@@ -90,7 +86,7 @@ const SignInPage = () => {
           </button>
           <div
             onClick={() => {
-              signInWithGoogle().catch((error) => console.error(error));
+              signUpWithGoogle().catch((error) => console.error(error));
             }}
             className={styles.socialIcons}
           >
@@ -99,16 +95,16 @@ const SignInPage = () => {
         </div>
         {signUpFlag ? (
           <p className={styles.createAccount}>
-            Don't have any account?{" "}
+            If you have an account,{" "}
             <a className={styles.signUpHere} onClick={() => setSignUpFlag(false)}>
-              Sign Up here
+              Sign In here
             </a>
           </p>
         ) : (
           <p className={styles.createAccount}>
-            If you have an account,{" "}
+            Don't have any account?{" "}
             <a className={styles.signUpHere} onClick={() => setSignUpFlag(true)}>
-              Sign In here
+              Sign Up here
             </a>
           </p>
         )}
