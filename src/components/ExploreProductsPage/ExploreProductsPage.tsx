@@ -1,5 +1,6 @@
 import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./ExploreProductsPage.module.css";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -32,8 +33,12 @@ const ExploreProductsPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <img src="/src/assets/chevron-left-icon.svg" alt="back" />
-        <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+        <Link className={styles.back} to="/">
+          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+        </Link>
+        <Link className={styles.cart} to="/shopping-cart">
+          <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+        </Link>
       </div>
       <div className={styles.titleContainer}>
         <p className={styles.featureProducts}>Feature Products</p>

@@ -106,6 +106,8 @@
   align-items: center;
   border-radius: 0.5875rem;
   background: #fff;
+  border-style: none;
+  cursor: pointer;
 }
 
 .createAccount {

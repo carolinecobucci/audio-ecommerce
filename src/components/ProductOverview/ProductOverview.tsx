@@ -6,6 +6,7 @@ import ReviewList from "../ReviewList/ReviewList";
 import styles from "./ProductOverview.module.css";
 import ProductFeatures from "../ProductFeatures/ProductFeatures";
 import greenLine from "/src/assets/green-line.svg";
+import { Link } from "react-router-dom";
 
 type OverviewOrFeatures = "overview" | "features";
 
@@ -20,8 +21,12 @@ const ProductOverview = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <img src="/src/assets/chevron-left-icon.svg" alt="back" />
-        <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+        <Link className={styles.back} to="/">
+          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+        </Link>
+        <Link className={styles.cart} to="/shopping-cart">
+          <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+        </Link>
       </div>
       <div className={styles.title}>
         <div className={styles.price}>USD 350</div>
@@ -65,7 +70,9 @@ const ProductOverview = () => {
       <div className={styles.bottonSection}>
         <div className={styles.anotherProductContainer}>
           <p className={styles.anotherProduct}>Another Product</p>
-          <p className={styles.seeAll}>See All</p>
+          <Link className={styles.seeAll} to="/explore-products">
+            See All
+          </Link>
         </div>
         <div className={styles.carouselContainer}>
           <CarouselAllProducts />

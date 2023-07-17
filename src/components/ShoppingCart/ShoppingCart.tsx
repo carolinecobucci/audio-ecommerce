@@ -1,11 +1,14 @@
 import ProductListCart from "../ProductListCart/ProductListCart";
 import styles from "./ShoppingCart.module.css";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+        <Link className={styles.back} to="/product-overview">
+          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+        </Link>
         <p className={styles.shoppingCart}>Shopping Cart</p>
         <img src="/src/assets/trash-2-icon.svg" alt="shopping cart" />
       </div>

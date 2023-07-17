@@ -45,8 +45,8 @@ const CarouselCategory = ({ id }: CarouselPropTypes) => {
           </motion.div>
 
           <motion.div className={styles.item}>
-            <input className={styles.radio} type="radio" name="category" id={`${id}-earpads`} />
-            <label className={styles.category} htmlFor={`${id}-earpads`}>
+            <input className={styles.radio} type="radio" name="category" id={`${id}-cable`} />
+            <label className={styles.category} htmlFor={`${id}-cable`}>
               Cable
             </label>
           </motion.div>

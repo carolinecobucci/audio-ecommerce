@@ -9,9 +9,16 @@
 .navBar {
   display: flex;
   align-items: center;
+  justify-items: center;
   justify-content: space-between;
   width: 23rem;
   margin-bottom: 2rem;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search {
@@ -21,6 +28,12 @@
   font-weight: 700;
   line-height: 1.25rem;
   letter-spacing: 0.0125rem;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .titleContainer {

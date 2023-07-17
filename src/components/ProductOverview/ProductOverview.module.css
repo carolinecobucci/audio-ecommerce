@@ -15,6 +15,18 @@
   margin-bottom: 2rem;
 }
 
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -114,6 +126,8 @@
   font-weight: 400;
   line-height: 1.25rem;
   letter-spacing: 0.0125rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .carouselContainer {
