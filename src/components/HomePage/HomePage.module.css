@@ -30,6 +30,30 @@
   max-width: 20rem;
 }
 
+.search {
+  display: flex;
+  width: 20.375rem;
+  height: 2.8125rem;
+  padding: 0rem 0.9375rem;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  border: 1px solid #bababa;
+  background: #fff;
+}
+
+.search::placeholder {
+  color: #bababa;
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  background-image: url(/src/assets/search-icon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 1.6rem;
+}
+
 .productsBg {
   display: flex;
   flex-direction: column;

@@ -88,7 +88,12 @@ const SignInPage = () => {
           <button className={styles.socialIcons}>
             <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
           </button>
-          <div onClick={signInWithGoogle} className={styles.socialIcons}>
+          <div
+            onClick={() => {
+              signInWithGoogle().catch((error) => console.error(error));
+            }}
+            className={styles.socialIcons}
+          >
             <img src="/src/assets/google-icon.svg" alt="google icon" />
           </div>
         </div>
