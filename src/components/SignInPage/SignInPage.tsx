@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from "../Button/Button";
 import styles from "./SignInPage.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -61,10 +60,18 @@ const SignInPage = () => {
           // TODO passar o metodo de onclick por parametro
           // OU modificar o Button para ser somente de estilo
           // <Button type={"submit"} buttonText={"Sign Up"} />
-          <Button type={"submit"} buttonText={"Sign Up"} />
+          <button
+            className={styles.signUpButton}
+            onClick={() => {
+              signIn().catch((error) => console.error(error));
+            }}
+          >
+            Sign Up
+          </button>
         ) : (
           // <Button type={"submit"} buttonText={"Sign In"} />
           <button
+            className={styles.signInButton}
             onClick={() => {
               signIn().catch((error) => console.error(error));
             }}

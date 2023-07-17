@@ -121,3 +121,24 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.signInButton,
+.signUpButton {
+  display: flex;
+  width: 20.375rem;
+  height: 3.125rem;
+  padding: 1.25rem 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.625rem;
+  background: #0acf83;
+  border-style: none;
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+}
