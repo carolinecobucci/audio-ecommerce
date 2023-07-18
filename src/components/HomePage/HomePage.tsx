@@ -1,7 +1,6 @@
 import Banner from "../Banner/Banner";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselCategory from "../CarouselCategory/CarouselCategory";
-// import InputSearch from "../InputSearch/InputSearch";
 import styles from "./HomePage.module.css";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -26,15 +25,25 @@ const HomePage = () => {
 
   return (
     <div className={styles.container}>
-      <button
-        onClick={() => {
-          logout().catch((error) => console.error(error));
-        }}
-      >
-        Logout
-      </button>
+      <div className={styles.navBar}>
+        <button className={styles.menuIcon}>
+          <img src="/src/assets/menu-icon.svg" alt="menu icon" />
+        </button>
+        <div className={styles.menuLogo}>
+          <img src="/src/assets/audio-logo.svg" alt="audio logo" />
+          Audio
+        </div>
+        <button
+          className={styles.logoutButton}
+          onClick={() => {
+            logout().catch((error) => console.error(error));
+          }}
+        >
+          LogOut
+        </button>
+      </div>
       <div className={styles.userGreetingContainer}>
-        <h1 className={styles.userGreeting}>Hi, Andrea</h1>
+        <h1 className={styles.userGreeting}>Hi, {auth.currentUser?.displayName}</h1>
         <p className={styles.userGreetingSubText}>What are you looking for today?</p>
       </div>
       <div>

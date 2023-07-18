@@ -38,9 +38,9 @@ const CarouselAllProducts = () => {
           className={styles.inner}
           drag="x"
           dragConstraints={{ right: 0, left: -600 }}
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial={{ x: 100 }}
+          // animate={{ x: 0 }}
+          // transition={{ duration: 0.8 }}
         >
           {products.map((product, i) => (
             <motion.div className={styles.item} key={i}>

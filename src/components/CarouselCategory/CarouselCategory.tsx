@@ -19,9 +19,9 @@ const CarouselCategory = ({ id }: CarouselPropTypes) => {
           className={styles.inner}
           drag="x"
           dragConstraints={{ right: 0, left: -100 }}
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial={{ x: 100 }}
+          // animate={{ x: 0 }}
+          // transition={{ duration: 0.8 }}
         >
           <motion.div className={styles.item}>
             <input className={styles.radio} type="radio" name="category" id={`${id}-headphone`} />
