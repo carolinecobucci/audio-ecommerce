@@ -21,7 +21,7 @@ const ProductOverview = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <Link className={styles.back} to="/">
+        <Link className={styles.back} to="/explore-products">
           <img src="/src/assets/chevron-left-icon.svg" alt="back" />
         </Link>
         <Link className={styles.cart} to="/shopping-cart">
