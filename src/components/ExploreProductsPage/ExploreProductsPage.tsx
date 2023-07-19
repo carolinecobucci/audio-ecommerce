@@ -1,35 +1,27 @@
 import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./ExploreProductsPage.module.css";
 import { Link } from "react-router-dom";
-
-const products = [
-  {
-    productName: "TMA-2 HD Wireless",
-    productPrice: "USD 350",
-    rate: "4.6",
-    reviewNumber: "86 Reviews",
-  },
-  {
-    productName: "TMA-2 HD Wireless",
-    productPrice: "USD 350",
-    rate: "4.6",
-    reviewNumber: "86 Reviews",
-  },
-  {
-    productName: "TMA-2 HD Wireless",
-    productPrice: "USD 350",
-    rate: "4.6",
-    reviewNumber: "86 Reviews",
-  },
-  {
-    productName: "TMA-2 HD Wireless",
-    productPrice: "USD 350",
-    rate: "4.6",
-    reviewNumber: "86 Reviews",
-  },
-];
+import { useState, useEffect } from "react";
+import axios, { AxiosResponse } from "axios";
+import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 
 const ExploreProductsPage = () => {
+  const url = "http://localhost:3000/product";
+  const [products, setProducts] = useState<ProductType[] | null>(null);
+
+  useEffect(() => {
+    const fetchProducts = async (): Promise<void> => {
+      try {
+        const response: AxiosResponse<ProductType[]> = await axios.get(url);
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    void fetchProducts();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
@@ -50,13 +42,13 @@ const ExploreProductsPage = () => {
       </div>
       <div className={styles.productsBg}>
         <div className={styles.productsGrid}>
-          {products.map((product, i) => (
+          {products?.map((product, i) => (
             <ProductGrid
               key={i}
-              productName={product.productName}
-              productPrice={product.productPrice}
-              rate={product.rate}
-              reviewNumber={product.reviewNumber}
+              productName={product.name}
+              productPrice={product.price}
+              rate={product.rating}
+              reviewNumber={product.reviews}
             />
           ))}
         </div>

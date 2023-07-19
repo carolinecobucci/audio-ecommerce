@@ -48,7 +48,7 @@ const CarouselAllProducts = () => {
         <motion.div
           className={styles.inner}
           drag="x"
-          dragConstraints={{ right: 0, left: -600 }}
+          dragConstraints={{ right: 0, left: -910 }}
           // initial={{ x: 100 }}
           // animate={{ x: 0 }}
           // transition={{ duration: 0.8 }}

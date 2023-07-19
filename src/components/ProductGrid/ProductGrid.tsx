@@ -12,9 +12,11 @@ const ProductGrid = ({ productName, productPrice, rate, reviewNumber }: productP
   return (
     <div className={styles.productGridContainer}>
       <div className={styles.productInfo}>
-        <img src="/src/assets/headphone.png" alt="product" />
-        <h1 className={styles.productName}>{productName}</h1>
-        <h2 className={styles.productPrice}>{productPrice}</h2>
+        <img className={styles.productImg} src="/src/assets/headphone.png" alt="product" />
+        <div className={styles.productNamePrice}>
+          <h1 className={styles.productName}>{productName}</h1>
+          <h2 className={styles.productPrice}>{productPrice}</h2>
+        </div>
       </div>
       <div className={styles.reviewContainer}>
         <div className={styles.starReviews}>

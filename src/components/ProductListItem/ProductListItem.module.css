@@ -1,9 +1,11 @@
 .productGridContainer {
   display: flex;
-  gap: 1.7rem;
+  gap: 3rem;
   justify-content: center;
   align-items: center;
   margin-bottom: 1.8rem;
+  width: 20rem;
+  height: 5rem;
 }
 
 .imgBg {

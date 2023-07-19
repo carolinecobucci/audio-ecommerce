@@ -1,6 +1,14 @@
 import styles from "./ProductListItem.module.css";
+import { Review } from "../CarouselAllProducts/CarouselAllProducts";
 
-const ProductListItem = () => {
+interface productPropTypes {
+  productName: string;
+  productPrice: string;
+  rate: number;
+  reviewNumber: Review[];
+}
+
+const ProductListItem = ({ productName, productPrice, rate, reviewNumber }: productPropTypes) => {
   return (
     <div className={styles.productGridContainer}>
       <div className={styles.imgBg}>
@@ -8,15 +16,15 @@ const ProductListItem = () => {
       </div>
       <div className={styles.productInfo}>
         <div className={styles.productNamePrice}>
-          <h1 className={styles.productName}>TMA-2 HD Wireless</h1>
-          <h2 className={styles.productPrice}>USD 350</h2>
+          <h1 className={styles.productName}>{productName}</h1>
+          <h2 className={styles.productPrice}>{productPrice}</h2>
         </div>
         <div className={styles.reviewContainer}>
           <div className={styles.starReviews}>
             <img className={styles.starImg} src="/src/assets/star-fill-icon.svg" alt="star icon" />
-            <p className={styles.rate}>4.6</p>
+            <p className={styles.rate}>{rate}</p>
           </div>
-          <p className={styles.reviewNumber}> 86 Reviews</p>
+          <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
           <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
         </div>
       </div>
