@@ -1,10 +1,11 @@
 import styles from "./ProductGrid.module.css";
+import { Review } from "../CarouselAllProducts/CarouselAllProducts";
 
 interface productPropTypes {
   productName: string;
   productPrice: string;
-  rate: string;
-  reviewNumber: string;
+  rate: number;
+  reviewNumber: Review[];
 }
 
 const ProductGrid = ({ productName, productPrice, rate, reviewNumber }: productPropTypes) => {
@@ -20,7 +21,7 @@ const ProductGrid = ({ productName, productPrice, rate, reviewNumber }: productP
           <img src="/src/assets/star-fill-icon.svg" alt="star icon" />
           <p className={styles.rate}>{rate}</p>
         </div>
-        <p className={styles.reviewNumber}>{reviewNumber}</p>
+        <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
         <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
       </div>
     </div>
