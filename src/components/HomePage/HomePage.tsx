@@ -43,7 +43,7 @@ const HomePage = () => {
           {photoURL ? (
             <img src={photoURL} alt="profile picture" />
           ) : (
-            <span>No profile picture available</span>
+            <img src="/src/assets/user.png" alt="profile picture" />
           )}
         </button>
       </div>
