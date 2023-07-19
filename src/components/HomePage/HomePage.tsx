@@ -8,6 +8,7 @@ import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const photoURL = auth.currentUser?.photoURL;
   const logout = async (): Promise<void> => {
     try {
       await signOut(auth);
@@ -39,7 +40,11 @@ const HomePage = () => {
             logout().catch((error) => console.error(error));
           }}
         >
-          LogOut
+          {photoURL ? (
+            <img src={photoURL} alt="profile picture" />
+          ) : (
+            <span>No profile picture available</span>
+          )}
         </button>
       </div>
       <div className={styles.userGreetingContainer}>

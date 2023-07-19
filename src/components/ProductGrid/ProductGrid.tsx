@@ -1,5 +1,6 @@
 import styles from "./ProductGrid.module.css";
 import { Review } from "../CarouselAllProducts/CarouselAllProducts";
+import { Link } from "react-router-dom";
 
 interface productPropTypes {
   productName: string;
@@ -24,7 +25,9 @@ const ProductGrid = ({ productName, productPrice, rate, reviewNumber }: productP
           <p className={styles.rate}>{rate}</p>
         </div>
         <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
-        <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
+        <Link to="/product-overview">
+          <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
+        </Link>
       </div>
     </div>
   );

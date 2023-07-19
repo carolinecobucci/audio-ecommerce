@@ -1,5 +1,6 @@
 import styles from "./ProductListItem.module.css";
 import { Review } from "../CarouselAllProducts/CarouselAllProducts";
+import { Link } from "react-router-dom";
 
 interface productPropTypes {
   productName: string;
@@ -25,7 +26,9 @@ const ProductListItem = ({ productName, productPrice, rate, reviewNumber }: prod
             <p className={styles.rate}>{rate}</p>
           </div>
           <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
-          <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
+          <Link to="/product-overview">
+            <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
+          </Link>
         </div>
       </div>
     </div>

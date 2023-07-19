@@ -65,7 +65,7 @@ const ProductOverview = () => {
         {showOverviewOrFeatures === "overview" && <CarouselProductOverview />}
         {showOverviewOrFeatures === "features" && <ProductFeatures />}
       </div>
-      <p className={styles.reviews}>Reviews (3)</p>
+      <p className={styles.reviews}>Reviews (2)</p>
       <ReviewList />
       <div className={styles.bottonSection}>
         <div className={styles.anotherProductContainer}>
