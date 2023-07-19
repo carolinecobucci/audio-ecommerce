@@ -1,14 +1,18 @@
-import InputSearch from "../InputSearch/InputSearch";
 import ProductListItem from "../ProductListItem/ProductListItem";
 import styles from "./SearchPage.module.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 
 const SearchPage = () => {
   const url = "http://localhost:3000/product";
-  const [products, setProducts] = useState<ProductType[] | null>(null);
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState<ProductType[]>([]);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
 
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
@@ -20,8 +24,17 @@ const SearchPage = () => {
       }
     };
 
+    if (searchTerm.trim() === "") {
+      setFilteredData(products); // If the search term is empty, show all data
+    } else {
+      const filteredResults = products.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredData(filteredResults);
+    }
+
     void fetchProducts();
-  }, []);
+  }, [searchTerm, products]);
 
   return (
     <div className={styles.container}>
@@ -34,11 +47,21 @@ const SearchPage = () => {
           <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
         </Link>
       </div>
-      <InputSearch />
+      <div>
+        <input
+          className={styles.searchInput}
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search headphone"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+      </div>
       <div className={styles.titleContainer}>
         <h2 className={styles.title}>Popular product</h2>
       </div>
-      {products?.map((product, i) => (
+      {filteredData.map((product, i) => (
         <ProductListItem
           key={i}
           productName={product.name}
