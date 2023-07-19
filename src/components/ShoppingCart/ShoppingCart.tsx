@@ -15,13 +15,15 @@ const ShoppingCart = () => {
       <ProductListCart />
       <ProductListCart />
       <ProductListCart />
-      <div className={styles.totalContainer}>
-        <p className={styles.totalItems}>Total 2 Items</p>
-        <p className={styles.totalDolars}>USD 295</p>
+      <div className={styles.bottomContainer}>
+        <div className={styles.totalContainer}>
+          <p className={styles.totalItems}>Total 2 Items</p>
+          <p className={styles.totalDolars}>USD 295</p>
+        </div>
+        <button className={styles.checkoutButton}>
+          Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
+        </button>
       </div>
-      <button className={styles.checkoutButton}>
-        Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
-      </button>
     </div>
   );
 };
