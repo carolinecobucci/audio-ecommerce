@@ -66,6 +66,7 @@ const SearchPage = () => {
       {filteredData.map((product, i) => (
         <ProductListItem
           key={i}
+          productId={product.id}
           productName={product.name}
           productPrice={product.price}
           rate={product.rating}

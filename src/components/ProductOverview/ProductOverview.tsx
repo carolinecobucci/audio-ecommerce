@@ -95,7 +95,14 @@ const ProductOverview = () => {
         )}
       </div>
       <p className={styles.reviews}>Reviews (2)</p>
-      <ReviewList />
+      {/* <ReviewList /> */}
+      {selectedProduct?.reviews.map((review) => (
+        <ReviewList
+          key={review.id}
+          reviewUser={review.user}
+          reviewDescription={review.description}
+        />
+      ))}
       <div className={styles.bottonSection}>
         <div className={styles.anotherProductContainer}>
           <p className={styles.anotherProduct}>Another Product</p>
