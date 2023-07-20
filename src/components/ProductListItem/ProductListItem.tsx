@@ -3,13 +3,20 @@ import { Review } from "../CarouselAllProducts/CarouselAllProducts";
 import { Link } from "react-router-dom";
 
 interface productPropTypes {
+  productId: number;
   productName: string;
   productPrice: string;
   rate: number;
   reviewNumber: Review[];
 }
 
-const ProductListItem = ({ productName, productPrice, rate, reviewNumber }: productPropTypes) => {
+const ProductListItem = ({
+  productId,
+  productName,
+  productPrice,
+  rate,
+  reviewNumber,
+}: productPropTypes) => {
   return (
     <div className={styles.productGridContainer}>
       <div className={styles.imgBg}>
@@ -26,7 +33,7 @@ const ProductListItem = ({ productName, productPrice, rate, reviewNumber }: prod
             <p className={styles.rate}>{rate}</p>
           </div>
           <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
-          <Link to="/product-overview">
+          <Link to={`/product-overview/${productId}`}>
             <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
           </Link>
         </div>

@@ -4,7 +4,6 @@ import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselProductOverview from "../CarouselProductOverview/CarouselProductOverview";
 import ReviewList from "../ReviewList/ReviewList";
 import styles from "./ProductOverview.module.css";
-import ProductFeatures from "../ProductFeatures/ProductFeatures";
 import greenLine from "/src/assets/green-line.svg";
 import { Link, useParams } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
@@ -88,7 +87,12 @@ const ProductOverview = () => {
       </div>
       <div className={styles.imagesContainer}>
         {showOverviewOrFeatures === "overview" && <CarouselProductOverview />}
-        {showOverviewOrFeatures === "features" && <ProductFeatures />}
+        {showOverviewOrFeatures === "features" && (
+          <div className={styles.reviewTextContainer}>
+            <div className={styles.reviewTextTitle}>{selectedProduct?.category}</div>
+            <div className={styles.reviewText}>{selectedProduct?.description}</div>
+          </div>
+        )}
       </div>
       <p className={styles.reviews}>Reviews (2)</p>
       <ReviewList />
