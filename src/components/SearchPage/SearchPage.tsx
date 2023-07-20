@@ -14,26 +14,28 @@ const SearchPage = () => {
     setSearchTerm(event.target.value);
   };
 
-  useEffect(() => {
-    const fetchProducts = async (): Promise<void> => {
-      try {
-        const response: AxiosResponse<ProductType[]> = await axios.get(url);
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const fetchProducts = async (): Promise<void> => {
+    try {
+      const response: AxiosResponse<ProductType[]> = await axios.get(url);
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
+  useEffect(() => {
+    void fetchProducts();
+  }, []);
+
+  useEffect(() => {
     if (searchTerm.trim() === "") {
-      setFilteredData(products); // If the search term is empty, show all data
+      setFilteredData(products);
     } else {
       const filteredResults = products.filter((item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredData(filteredResults);
     }
-
-    void fetchProducts();
   }, [searchTerm, products]);
 
   return (

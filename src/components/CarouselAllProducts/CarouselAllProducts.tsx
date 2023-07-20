@@ -56,6 +56,7 @@ const CarouselAllProducts = () => {
           {products?.map((product, i) => (
             <motion.div className={styles.item} key={i}>
               <ProductGrid
+                productId={product.id}
                 productName={product.name}
                 productPrice={product.price}
                 rate={product.rating}

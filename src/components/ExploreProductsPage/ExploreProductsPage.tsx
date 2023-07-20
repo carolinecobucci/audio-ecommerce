@@ -45,6 +45,7 @@ const ExploreProductsPage = () => {
           {products?.map((product, i) => (
             <ProductGrid
               key={i}
+              productId={product.id}
               productName={product.name}
               productPrice={product.price}
               rate={product.rating}

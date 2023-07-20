@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselProductOverview from "../CarouselProductOverview/CarouselProductOverview";
@@ -6,7 +6,9 @@ import ReviewList from "../ReviewList/ReviewList";
 import styles from "./ProductOverview.module.css";
 import ProductFeatures from "../ProductFeatures/ProductFeatures";
 import greenLine from "/src/assets/green-line.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios, { AxiosResponse } from "axios";
+import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 
 type OverviewOrFeatures = "overview" | "features";
 
@@ -17,6 +19,30 @@ const ProductOverview = () => {
   const handleOverviewFeatureClick = (option: OverviewOrFeatures) => {
     setShowOverviewOrFeatures(option);
   };
+  const { productId } = useParams();
+  const url = "http://localhost:3000/product";
+  const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
+
+  const getProductById = (
+    productsArray: ProductType[],
+    productId: string | undefined
+  ): ProductType | undefined => {
+    return productsArray.find((product) => product.id.toString() === productId);
+  };
+
+  useEffect(() => {
+    const fetchProducts = async (): Promise<void> => {
+      try {
+        const response: AxiosResponse<ProductType[]> = await axios.get(url);
+        const product = getProductById(response.data, productId);
+        setSelectedProduct(product!);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    void fetchProducts();
+  }, [productId]);
 
   return (
     <div className={styles.container}>
@@ -29,9 +55,8 @@ const ProductOverview = () => {
         </Link>
       </div>
       <div className={styles.title}>
-        <div className={styles.price}>USD 350</div>
-        <div className={styles.productName}>TMA-2</div>
-        <div className={styles.productName}>HD WIRELESS</div>
+        <div className={styles.price}>{selectedProduct?.price}</div>
+        <div className={styles.productName}>{selectedProduct?.name}</div>
       </div>
       <div className={styles.overviewContainer}>
         <div>

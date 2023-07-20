@@ -15,10 +15,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/explore-products" element={<ExploreProductsPage />} />
-        <Route path="/product-overview" element={<ProductOverview />} />
+        <Route path="/product-overview/:productId" element={<ProductOverview />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
       </Routes>
-      {/* <ul>
+      <ul>
         <li>
           <Link to="/sign-in">Sign In</Link>
         </li>
@@ -37,7 +37,7 @@ function App() {
         <li>
           <Link to="/shopping-cart">Shopping Cart</Link>
         </li>
-      </ul> */}
+      </ul>
     </>
   );
 }
