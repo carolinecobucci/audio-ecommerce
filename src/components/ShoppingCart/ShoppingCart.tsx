@@ -17,13 +17,22 @@ const ShoppingCart = () => {
   };
 
   const calculateTotalDollars = () => {
-    const sum = globalUser?.cart.reduce((accumulator, currentValue) => {
-      const priceString = currentValue.price.slice(1);
-      const priceFloat = parseFloat(priceString);
-      return accumulator + priceFloat;
+    const sum = globalUser?.cart.reduce((accumulator, product) => {
+      const priceString = product.price.slice(1); // remove simbolo de dollar
+      const priceFloat = parseFloat(priceString); // transforma em float
+      const quantityMultiplier = priceFloat * product.quantity; // multiplica por quantidade do item
+      return accumulator + quantityMultiplier;
     }, 0);
 
     return sum!.toFixed(2);
+  };
+
+  const getTotalItems = () => {
+    const sum = globalUser?.cart.reduce((accumulator, product) => {
+      return accumulator + product.quantity;
+    }, 0);
+
+    return sum;
   };
 
   return (
@@ -52,7 +61,7 @@ const ShoppingCart = () => {
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.totalContainer}>
-          <p className={styles.totalItems}>{`Total ${globalUser!.cart.length} items`}</p>
+          <p className={styles.totalItems}>{`Total ${getTotalItems()!} items`}</p>
           <p className={styles.totalDollars}>${calculateTotalDollars()}</p>
         </div>
         <button className={styles.checkoutButton}>
