@@ -22,11 +22,13 @@ const HomePage = () => {
   const { globalUser, setGlobalUser } = useContext<GlobalUserContextType>(GlobalUserContext);
 
   useEffect(() => {
-    setGlobalUser({
-      username: auth.currentUser!.displayName,
-      profilePicture: auth.currentUser!.photoURL,
-      cart: [],
-    });
+    if (auth) {
+      setGlobalUser({
+        username: auth.currentUser!.displayName,
+        profilePicture: auth.currentUser!.photoURL,
+        cart: [],
+      });
+    }
   }, [setGlobalUser]);
 
   const handleButtonClick = () => {
