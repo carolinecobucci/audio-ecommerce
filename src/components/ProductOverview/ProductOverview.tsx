@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselProductOverview from "../CarouselProductOverview/CarouselProductOverview";
 import ReviewList from "../ReviewList/ReviewList";
@@ -7,6 +7,7 @@ import greenLine from "/src/assets/green-line.svg";
 import { Link, useParams } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
+import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 
 type OverviewOrFeatures = "overview" | "features";
 
@@ -21,13 +22,21 @@ const ProductOverview = () => {
   const { productId } = useParams();
   const url = "http://localhost:3000/product";
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
-  const [productCart, setProductCart] = useState<ProductType[] | null>(null);
+  const { globalUser, setGlobalUser } = useContext<GlobalUserContextType>(GlobalUserContext);
 
   const addToCart = () => {
-    if (productCart === null) {
-      setProductCart([selectedProduct!]);
+    if (globalUser?.cart.length === 0) {
+      setGlobalUser({
+        username: globalUser.username,
+        profilePicture: globalUser.profilePicture,
+        cart: [selectedProduct!],
+      });
     } else {
-      setProductCart([...productCart, selectedProduct!]);
+      setGlobalUser({
+        username: globalUser!.username,
+        profilePicture: globalUser!.profilePicture,
+        cart: [...globalUser!.cart, selectedProduct!],
+      });
     }
   };
 
@@ -123,9 +132,9 @@ const ProductOverview = () => {
         </div>
       </div>
       {/* exibir os itens do carrinho */}
-      <div>
+      {/* <div>
         {productCart && productCart?.map((product: ProductType) => <div key={product.id}></div>)}
-      </div>
+      </div> */}
       {/*  */}
       <button className={styles.button} onClick={() => addToCart()}>
         Add to Cart

@@ -26,10 +26,10 @@ const HomePage = () => {
       setGlobalUser({
         username: auth.currentUser!.displayName,
         profilePicture: auth.currentUser!.photoURL,
-        cart: [],
+        cart: globalUser!.cart,
       });
     }
-  }, [setGlobalUser]);
+  }, []);
 
   const handleButtonClick = () => {
     // Navegar para outra página
