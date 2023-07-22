@@ -1,6 +1,11 @@
 import styles from "./ProductListCart.module.css";
 
-const ProductListCart = () => {
+interface ProductListCartPropType {
+  name: string;
+  price: string;
+}
+
+const ProductListCart = ({ name, price }: ProductListCartPropType) => {
   return (
     <div className={styles.productCartContainer}>
       <div className={styles.imgBg}>
@@ -8,8 +13,8 @@ const ProductListCart = () => {
       </div>
       <div className={styles.productInfo}>
         <div className={styles.productNamePrice}>
-          <h1 className={styles.productName}>TMA-2 HD Wireless</h1>
-          <h2 className={styles.productPrice}>USD 350</h2>
+          <h1 className={styles.productName}>{name}</h1>
+          <h2 className={styles.productPrice}>{price}</h2>
         </div>
         <div className={styles.counterContainer}>
           <div className={styles.counter}>

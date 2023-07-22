@@ -4,7 +4,7 @@ import CarouselProductOverview from "../CarouselProductOverview/CarouselProductO
 import ReviewList from "../ReviewList/ReviewList";
 import styles from "./ProductOverview.module.css";
 import greenLine from "/src/assets/green-line.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
@@ -14,10 +14,10 @@ type OverviewOrFeatures = "overview" | "features";
 const ProductOverview = () => {
   const [showOverviewOrFeatures, setShowOverviewOrFeatures] =
     useState<OverviewOrFeatures>("overview");
-
   const handleOverviewFeatureClick = (option: OverviewOrFeatures) => {
     setShowOverviewOrFeatures(option);
   };
+  const navigate = useNavigate();
 
   const { productId } = useParams();
   const url = "http://localhost:3000/product";
@@ -31,12 +31,14 @@ const ProductOverview = () => {
         profilePicture: globalUser.profilePicture,
         cart: [selectedProduct!],
       });
+      navigate("/shopping-cart");
     } else {
       setGlobalUser({
         username: globalUser!.username,
         profilePicture: globalUser!.profilePicture,
         cart: [...globalUser!.cart, selectedProduct!],
       });
+      navigate("/shopping-cart");
     }
   };
 
@@ -131,11 +133,7 @@ const ProductOverview = () => {
           <CarouselAllProducts />
         </div>
       </div>
-      {/* exibir os itens do carrinho */}
-      {/* <div>
-        {productCart && productCart?.map((product: ProductType) => <div key={product.id}></div>)}
-      </div> */}
-      {/*  */}
+
       <button className={styles.button} onClick={() => addToCart()}>
         Add to Cart
       </button>
