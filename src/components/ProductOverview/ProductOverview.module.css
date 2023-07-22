@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -168,4 +168,22 @@
 
 .carouselContainer {
   width: 380px;
+}
+
+.button {
+  display: flex;
+  width: 20.375rem;
+  height: 3.125rem;
+  padding: 1.25rem 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  border: none;
+  background: #0acf83;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
 }

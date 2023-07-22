@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Button from "../Button/Button";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselProductOverview from "../CarouselProductOverview/CarouselProductOverview";
 import ReviewList from "../ReviewList/ReviewList";
@@ -18,9 +17,19 @@ const ProductOverview = () => {
   const handleOverviewFeatureClick = (option: OverviewOrFeatures) => {
     setShowOverviewOrFeatures(option);
   };
+
   const { productId } = useParams();
   const url = "http://localhost:3000/product";
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
+  const [productCart, setProductCart] = useState<ProductType[] | null>(null);
+
+  const addToCart = () => {
+    if (productCart === null) {
+      setProductCart([selectedProduct!]);
+    } else {
+      setProductCart([...productCart, selectedProduct!]);
+    }
+  };
 
   const getProductById = (
     productsArray: ProductType[],
@@ -95,7 +104,6 @@ const ProductOverview = () => {
         )}
       </div>
       <p className={styles.reviews}>Reviews (2)</p>
-      {/* <ReviewList /> */}
       {selectedProduct?.reviews.map((review) => (
         <ReviewList
           key={review.id}
@@ -114,7 +122,14 @@ const ProductOverview = () => {
           <CarouselAllProducts />
         </div>
       </div>
-      <Button type={"submit"} buttonText={"Add to Cart"} />
+      {/* exibir os itens do carrinho */}
+      <div>
+        {productCart && productCart?.map((product: ProductType) => <div key={product.id}></div>)}
+      </div>
+      {/*  */}
+      <button className={styles.button} onClick={() => addToCart()}>
+        Add to Cart
+      </button>
     </div>
   );
 };
