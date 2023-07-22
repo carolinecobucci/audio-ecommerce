@@ -40,7 +40,14 @@ const ShoppingCart = () => {
       <div>
         {globalUser?.cart &&
           globalUser?.cart?.map((product: ProductType) => {
-            return <ProductListCart key={product.id} name={product.name} price={product.price} />;
+            return (
+              <ProductListCart
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                quantity={product.quantity}
+              />
+            );
           })}
       </div>
       <div className={styles.bottomContainer}>

@@ -23,6 +23,7 @@ export interface ProductType {
   created_at: string;
   reviews: Review[];
   id: number;
+  quantity: number;
 }
 
 const CarouselAllProducts = () => {

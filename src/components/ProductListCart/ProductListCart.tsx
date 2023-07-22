@@ -3,9 +3,10 @@ import styles from "./ProductListCart.module.css";
 interface ProductListCartPropType {
   name: string;
   price: string;
+  quantity: number;
 }
 
-const ProductListCart = ({ name, price }: ProductListCartPropType) => {
+const ProductListCart = ({ name, price, quantity }: ProductListCartPropType) => {
   return (
     <div className={styles.productCartContainer}>
       <div className={styles.imgBg}>
@@ -21,7 +22,7 @@ const ProductListCart = ({ name, price }: ProductListCartPropType) => {
             <button className={styles.counterMinus}>
               <img src="/src/assets/minus-icon.svg" alt="minus" />
             </button>
-            <p>1</p>
+            <p>{quantity}</p>
             <button className={styles.counterPlus}>
               <img src="/src/assets/plus-icon.svg" alt="plus" />
             </button>
