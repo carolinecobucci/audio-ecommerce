@@ -16,6 +16,16 @@ const ShoppingCart = () => {
     });
   };
 
+  const calculateTotalDollars = () => {
+    const sum = globalUser?.cart.reduce((accumulator, currentValue) => {
+      const priceString = currentValue.price.slice(1);
+      const priceFloat = parseFloat(priceString);
+      return accumulator + priceFloat;
+    }, 0);
+
+    return sum!.toFixed(2);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
@@ -35,8 +45,8 @@ const ShoppingCart = () => {
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.totalContainer}>
-          <p className={styles.totalItems}>Total 2 Items</p>
-          <p className={styles.totalDolars}>USD 295</p>
+          <p className={styles.totalItems}>{`Total ${globalUser!.cart.length} items`}</p>
+          <p className={styles.totalDollars}>${calculateTotalDollars()}</p>
         </div>
         <button className={styles.checkoutButton}>
           Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
