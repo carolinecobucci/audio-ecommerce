@@ -1,3 +1,4 @@
+import { useEffect, useContext } from "react";
 import Banner from "../Banner/Banner";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselCategory from "../CarouselCategory/CarouselCategory";
@@ -6,9 +7,9 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 
 const HomePage = () => {
-  const photoURL = auth.currentUser?.photoURL;
   const logout = async (): Promise<void> => {
     try {
       await signOut(auth);
@@ -18,6 +19,15 @@ const HomePage = () => {
     }
   };
   const navigate = useNavigate();
+  const { globalUser, setGlobalUser } = useContext<GlobalUserContextType>(GlobalUserContext);
+
+  useEffect(() => {
+    setGlobalUser({
+      username: auth.currentUser!.displayName,
+      profilePicture: auth.currentUser!.photoURL,
+      cart: [],
+    });
+  }, [setGlobalUser]);
 
   const handleButtonClick = () => {
     // Navegar para outra página
@@ -40,15 +50,15 @@ const HomePage = () => {
             logout().catch((error) => console.error(error));
           }}
         >
-          {photoURL ? (
-            <img src={photoURL} alt="profile picture" />
+          {globalUser?.profilePicture ? (
+            <img src={globalUser?.profilePicture} alt="profile picture" />
           ) : (
             <img src="/src/assets/user.png" alt="profile picture" />
           )}
         </button>
       </div>
       <div className={styles.userGreetingContainer}>
-        <h1 className={styles.userGreeting}>Hi, {auth.currentUser?.displayName}</h1>
+        <h1 className={styles.userGreeting}>Hi, {globalUser?.username}</h1>
         <p className={styles.userGreetingSubText}>What are you looking for today?</p>
       </div>
       <div>
