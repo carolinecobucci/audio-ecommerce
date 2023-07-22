@@ -30,39 +30,29 @@ const ProductOverview = () => {
   };
 
   const addToCart = () => {
-    if (globalUser?.cart.length === 0) {
-      selectedProduct!.quantity = 1;
+    if (!globalUser) return; // retorna agora se nao houver globalUser
+
+    const position: number = findProductIndex(selectedProduct!);
+
+    if (position !== -1) {
+      // produto ja esta no carrinho, incrementa quantidade
+      const cartCopy: ProductType[] = [...globalUser.cart];
+      cartCopy[position].quantity++;
 
       setGlobalUser({
-        username: globalUser.username,
-        profilePicture: globalUser.profilePicture,
-        cart: [selectedProduct!],
+        ...globalUser,
+        cart: cartCopy,
       });
-      navigate("/shopping-cart");
     } else {
-      const position: number = findProductIndex(selectedProduct!);
-
-      if (position !== -1) {
-        const cartCopy: ProductType[] = globalUser!.cart;
-        cartCopy[position].quantity = cartCopy[position].quantity + 1;
-
-        setGlobalUser({
-          username: globalUser!.username,
-          profilePicture: globalUser!.profilePicture,
-          cart: cartCopy,
-        });
-      } else {
-        selectedProduct!.quantity = 1;
-
-        setGlobalUser({
-          username: globalUser!.username,
-          profilePicture: globalUser!.profilePicture,
-          cart: [...globalUser!.cart, selectedProduct!],
-        });
-      }
-
-      navigate("/shopping-cart");
+      // produto nao esta no carrinho, adiciona no final da array com
+      // quantidade setada em 1
+      setGlobalUser({
+        ...globalUser,
+        cart: [...globalUser.cart, { ...selectedProduct!, quantity: 1 }],
+      });
     }
+
+    navigate("/shopping-cart");
   };
 
   const getProductById = (
