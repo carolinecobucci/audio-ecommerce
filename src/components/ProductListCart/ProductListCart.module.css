@@ -72,4 +72,14 @@
   border-radius: 0.625rem;
   border: 1px solid #bababa;
   background: #fff;
+  cursor: pointer;
+}
+
+.removeItemButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: none;
+  background-color: #fff;
+  cursor: pointer;
 }

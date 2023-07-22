@@ -31,6 +31,15 @@
   letter-spacing: 0.0125rem;
 }
 
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 .totalContainer {
   display: flex;
   justify-content: space-between;

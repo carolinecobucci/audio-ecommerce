@@ -42,7 +42,7 @@ const ShoppingCart = () => {
           <img src="/src/assets/chevron-left-icon.svg" alt="back" />
         </Link>
         <p className={styles.shoppingCart}>Shopping Cart</p>
-        <button onClick={() => removeAllItems()}>
+        <button className={styles.removeButton} onClick={() => removeAllItems()}>
           <img src="/src/assets/trash-2-icon.svg" alt="remove all cart items" />
         </button>
       </div>

@@ -27,7 +27,9 @@ const ProductListCart = ({ name, price, quantity }: ProductListCartPropType) => 
               <img src="/src/assets/plus-icon.svg" alt="plus" />
             </button>
           </div>
-          <img src="/src/assets/trash-light.svg" alt="delete" />
+          <button className={styles.removeItemButton}>
+            <img src="/src/assets/trash-light.svg" alt="delete" />
+          </button>
         </div>
       </div>
     </div>
