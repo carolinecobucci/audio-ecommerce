@@ -6,7 +6,7 @@ import ProductOverview from "./components/ProductOverview/ProductOverview";
 import SearchPage from "./components/SearchPage/SearchPage";
 import SignInPage from "./components/SignInPage/SignInPage";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {
   GlobalUserContext,
   GlobalUserContextType,
@@ -37,26 +37,6 @@ function App() {
           <Route path="/shopping-cart" element={<ShoppingCart />} />
         </Routes>
       </GlobalUserContext.Provider>
-      <ul>
-        <li>
-          <Link to="/sign-in">Sign In</Link>
-        </li>
-        <li>
-          <Link to="/">Home Page</Link>
-        </li>
-        <li>
-          <Link to="/search">Search Page</Link>
-        </li>
-        <li>
-          <Link to="/explore-products">Explore Products</Link>
-        </li>
-        <li>
-          <Link to="/product-overview">Product Overview</Link>
-        </li>
-        <li>
-          <Link to="/shopping-cart">Shopping Cart</Link>
-        </li>
-      </ul>
     </>
   );
 }

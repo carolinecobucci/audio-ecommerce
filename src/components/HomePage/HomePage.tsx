@@ -62,16 +62,16 @@ const HomePage = () => {
       <div className={styles.userGreetingContainer}>
         <h1 className={styles.userGreeting}>Hi, {globalUser?.username}</h1>
         <p className={styles.userGreetingSubText}>What are you looking for today?</p>
-      </div>
-      <div>
-        <input
-          className={styles.search}
-          type="search"
-          name="search"
-          id="search"
-          placeholder="Search headphone"
-          onClick={handleButtonClick}
-        />
+        <div>
+          <input
+            className={styles.search}
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search headphone"
+            onClick={handleButtonClick}
+          />
+        </div>
       </div>
       <div className={styles.productsBg}>
         <CarouselCategory id={"home-page"} />

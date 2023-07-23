@@ -1,11 +1,10 @@
 .container {
   width: 422px;
+  min-height: 55rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
-  padding-bottom: 3rem;
 }
 
 .navBar {
@@ -20,6 +19,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.productList {
+  margin-top: 2rem;
 }
 
 .shoppingCart {
@@ -63,12 +66,18 @@
   letter-spacing: 0.0125rem;
 }
 
+.listAndButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 49rem;
+}
+
 .bottomContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 21rem;
 }
 
 .checkoutButton {

@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
+import { BottomSheet } from "react-spring-bottom-sheet";
 
 const ExploreProductsPage = () => {
   const url = "http://localhost:3000/product";
   const [products, setProducts] = useState<ProductType[] | null>(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
@@ -36,10 +38,10 @@ const ExploreProductsPage = () => {
         <p className={styles.featureProducts}>Feature Products</p>
         <h2 className={styles.seeAll}>See all products</h2>
       </div>
-      <div className={styles.filter}>
+      <button onClick={() => setOpen(true)} className={styles.filter}>
         <img className={styles.filterImg} src="/src/assets/sliders-icon.svg" alt="filter" />
         <p className={styles.filterText}>Filter</p>
-      </div>
+      </button>
       <div className={styles.productsBg}>
         <div className={styles.productsGrid}>
           {products?.map((product, i) => (

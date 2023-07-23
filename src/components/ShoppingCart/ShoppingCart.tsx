@@ -46,28 +46,30 @@ const ShoppingCart = () => {
           <img src="/src/assets/trash-2-icon.svg" alt="remove all cart items" />
         </button>
       </div>
-      <div>
-        {globalUser?.cart &&
-          globalUser?.cart?.map((product: ProductType) => {
-            return (
-              <ProductListCart
-                key={product.id}
-                productId={product.id}
-                name={product.name}
-                price={product.price}
-                quantity={product.quantity}
-              />
-            );
-          })}
-      </div>
-      <div className={styles.bottomContainer}>
-        <div className={styles.totalContainer}>
-          <p className={styles.totalItems}>{`Total ${getTotalItems()!} items`}</p>
-          <p className={styles.totalDollars}>${calculateTotalDollars()}</p>
+      <div className={styles.listAndButtonContainer}>
+        <div className={styles.productList}>
+          {globalUser?.cart &&
+            globalUser?.cart?.map((product: ProductType) => {
+              return (
+                <ProductListCart
+                  key={product.id}
+                  productId={product.id}
+                  name={product.name}
+                  price={product.price}
+                  quantity={product.quantity}
+                />
+              );
+            })}
         </div>
-        <button className={styles.checkoutButton}>
-          Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
-        </button>
+        <div className={styles.bottomContainer}>
+          <div className={styles.totalContainer}>
+            <p className={styles.totalItems}>{`Total ${getTotalItems()!} items`}</p>
+            <p className={styles.totalDollars}>${calculateTotalDollars()}</p>
+          </div>
+          <button className={styles.checkoutButton}>
+            Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
+          </button>
+        </div>
       </div>
     </div>
   );

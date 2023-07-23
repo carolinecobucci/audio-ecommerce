@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import styles from "./ProductListCart.module.css";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
