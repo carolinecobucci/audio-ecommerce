@@ -1,15 +1,16 @@
+import { useState, useEffect, useRef } from "react";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./ExploreProductsPage.module.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
-import { BottomSheet } from "react-spring-bottom-sheet";
+import Filter from "../Filter/Filter";
+import Sheet from "react-modal-sheet";
 
 const ExploreProductsPage = () => {
   const url = "http://localhost:3000/product";
   const [products, setProducts] = useState<ProductType[] | null>(null);
-  const [open, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
@@ -42,6 +43,15 @@ const ExploreProductsPage = () => {
         <img className={styles.filterImg} src="/src/assets/sliders-icon.svg" alt="filter" />
         <p className={styles.filterText}>Filter</p>
       </button>
+      <Sheet isOpen={isOpen} onClose={() => setOpen(false)}>
+        <Sheet.Container>
+          <Sheet.Header />
+          <Sheet.Content>
+            <Filter setOpen={setOpen} />
+          </Sheet.Content>
+        </Sheet.Container>
+        <Sheet.Backdrop />
+      </Sheet>
       <div className={styles.productsBg}>
         <div className={styles.productsGrid}>
           {products?.map((product, i) => (
