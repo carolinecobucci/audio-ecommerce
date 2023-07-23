@@ -17,6 +17,12 @@
   margin-bottom: 2rem;
 }
 
+.closeIcon {
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 .filter {
   color: black;
   font-family: Montserrat;
@@ -76,4 +82,23 @@
   border: 1px solid #0acf83;
   background: #0acf83;
   color: white;
+}
+
+.button {
+  display: flex;
+  width: 20.375rem;
+  height: 3.125rem;
+  padding: 1.25rem 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  border: none;
+  background: #0acf83;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
+  cursor: pointer;
 }

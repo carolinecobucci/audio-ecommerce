@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Banner.module.css";
 
 const Banner = () => {
@@ -5,10 +6,10 @@ const Banner = () => {
     <div className={styles.banner}>
       <div className={styles.productContainer}>
         <h1 className={styles.productName}>TMA-2 Modular Headphone</h1>
-        <div className={styles.shopNow}>
+        <Link className={styles.shopNow} to="/explore-products">
           <p>Shop now</p>
           <img src="/src/assets/arrow-right-icon.svg" alt="shop now icon" />
-        </div>
+        </Link>
       </div>
       <img src="/src/assets/headphone.png" alt="headphone" />
     </div>

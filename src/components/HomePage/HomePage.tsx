@@ -8,8 +8,15 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
+import { CategoryTypes, SortByTypes } from "../ExploreProductsPage/ExploreProductsPage";
 
-const HomePage = () => {
+interface FilterPropTypes {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<CategoryTypes["category"]>>;
+  setSortBy: React.Dispatch<React.SetStateAction<SortByTypes["sortBy"]>>;
+}
+
+const HomePage = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
   const logout = async (): Promise<void> => {
     try {
       await signOut(auth);
@@ -74,7 +81,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className={styles.productsBg}>
-        <CarouselCategory id={"home-page"} />
+        <CarouselCategory id={"home-page"} setCategory={setCategory} />
         <Banner />
         <div className={styles.featureProductsContainer}>
           <p className={styles.featureProducts}>Feature Products</p>

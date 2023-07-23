@@ -27,9 +27,13 @@
 
 .shopNow {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   color: #0acf83;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.0125rem;
+  font-family: "DM Sans", sans-serif;
+  text-decoration: none;
 }

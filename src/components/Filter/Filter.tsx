@@ -1,23 +1,25 @@
-import Button from "../Button/Button";
 import CarouselCategory from "../CarouselCategory/CarouselCategory";
 import styles from "./Filter.module.css";
+import { CategoryTypes, SortByTypes } from "../ExploreProductsPage/ExploreProductsPage";
 
 interface FilterPropTypes {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<CategoryTypes["category"]>>;
+  setSortBy: React.Dispatch<React.SetStateAction<SortByTypes["sortBy"]>>;
 }
 
-const Filter = ({ setOpen }: FilterPropTypes) => {
+const Filter = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.navBar}>
           <h1 className={styles.filter}>Filter</h1>
-          <button onClick={() => setOpen(false)}>
-            <img className={styles.closeIcon} src="/src/assets/close-icon.svg" alt="close" />
+          <button className={styles.closeIcon} onClick={() => setOpen(false)}>
+            <img src="/src/assets/close-icon.svg" alt="close" />
           </button>
         </div>
         <h2 className={styles.titles}>Category</h2>
-        <CarouselCategory id={"filter"} />
+        <CarouselCategory id={"filter"} setCategory={setCategory} />
         <h2 className={styles.titles}>Sort by</h2>
         <div className={styles.sortByCheckboxes}>
           <input
@@ -81,7 +83,9 @@ const Filter = ({ setOpen }: FilterPropTypes) => {
             Review
           </label>
         </div>
-        <Button type={"submit"} buttonText={"Apply Filter"} />
+        <button className={styles.button} onClick={() => setOpen(false)}>
+          Apply Filter
+        </button>
       </div>
     </>
   );

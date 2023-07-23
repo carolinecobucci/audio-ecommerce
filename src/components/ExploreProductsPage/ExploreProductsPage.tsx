@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import styles from "./ExploreProductsPage.module.css";
 import { Link } from "react-router-dom";
@@ -7,23 +7,48 @@ import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 import Filter from "../Filter/Filter";
 import Sheet from "react-modal-sheet";
 
+// unicas categorias existentes no DB sao Headsets e Headphones
+// nao batem com o figma!!!!
+interface CategoryTypes {
+  category: "Headsets" | "Headphones" | "earpads" | "cable" | null;
+}
+interface SortByTypes {
+  sortBy: "popularity" | "newest" | "oldest" | "highprice" | "lowprice" | "review" | null;
+}
+
+export type { CategoryTypes, SortByTypes };
+
 const ExploreProductsPage = () => {
   const url = "http://localhost:3000/product";
   const [products, setProducts] = useState<ProductType[] | null>(null);
   const [isOpen, setOpen] = useState(false);
+  const [category, setCategory] = useState<CategoryTypes["category"]>(null);
+  const [sortBy, setSortBy] = useState<SortByTypes["sortBy"]>(null);
 
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
       try {
         const response: AxiosResponse<ProductType[]> = await axios.get(url);
-        setProducts(response.data);
+        if (category) {
+          setProducts(filteredByCategory(response.data, category));
+        } else {
+          setProducts(response.data);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     void fetchProducts();
-  }, []);
+  }, [category]);
+
+  const filteredByCategory = (
+    productsArray: ProductType[],
+    category: CategoryTypes["category"]
+  ) => {
+    const filteredProducts = productsArray.filter((product) => product.category === category);
+    return filteredProducts;
+  };
 
   return (
     <div className={styles.container}>
@@ -47,7 +72,7 @@ const ExploreProductsPage = () => {
         <Sheet.Container>
           <Sheet.Header />
           <Sheet.Content>
-            <Filter setOpen={setOpen} />
+            <Filter setOpen={setOpen} setCategory={setCategory} setSortBy={setSortBy} />
           </Sheet.Content>
         </Sheet.Container>
         <Sheet.Backdrop />
@@ -65,6 +90,7 @@ const ExploreProductsPage = () => {
             />
           ))}
         </div>
+        {products?.length === 0 && <div>No products found</div>}
       </div>
     </div>
   );

@@ -95,7 +95,7 @@ const SignInPage = () => {
         </div>
         {signUpFlag ? (
           <p className={styles.createAccount}>
-            If you have an account,{" "}
+            If you have an account.{" "}
             <a className={styles.signUpHere} onClick={() => setSignUpFlag(false)}>
               Sign In here
             </a>
