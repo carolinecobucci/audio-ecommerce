@@ -4,6 +4,9 @@ import styles from "./ShoppingCart.module.css";
 import { Link } from "react-router-dom";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
+import leftIcon from "/src/assets/chevron-left-icon.svg";
+import trashDarkIcon from "/src/assets/trash-2-icon.svg";
+import rightIcon from "/src/assets/chevron-right-icon.svg";
 
 const ShoppingCart = () => {
   const { globalUser, setGlobalUser } = useContext<GlobalUserContextType>(GlobalUserContext);
@@ -39,11 +42,11 @@ const ShoppingCart = () => {
     <div className={styles.container}>
       <div className={styles.navBar}>
         <Link className={styles.back} to="/explore-products">
-          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+          <img src={leftIcon} alt="back" />
         </Link>
         <p className={styles.shoppingCart}>Shopping Cart</p>
         <button className={styles.removeButton} onClick={() => removeAllItems()}>
-          <img src="/src/assets/trash-2-icon.svg" alt="remove all cart items" />
+          <img src={trashDarkIcon} alt="remove all cart items" />
         </button>
       </div>
       <div className={styles.listAndButtonContainer}>
@@ -67,7 +70,7 @@ const ShoppingCart = () => {
             <p className={styles.totalDollars}>${calculateTotalDollars()}</p>
           </div>
           <button className={styles.checkoutButton}>
-            Proceed to Checkout <img src="/src/assets/chevron-right-icon.svg" alt="right arrow" />
+            Proceed to Checkout <img src={rightIcon} alt="right arrow" />
           </button>
         </div>
       </div>

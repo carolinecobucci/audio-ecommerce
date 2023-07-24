@@ -6,6 +6,9 @@ import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
 import Filter from "../Filter/Filter";
 import Sheet from "react-modal-sheet";
+import leftIcon from "/src/assets/chevron-left-icon.svg";
+import shoppingCartIcon from "/src/assets/shopping-cart-icon.svg";
+import slidersIcon from "/src/assets/sliders-icon.svg";
 
 // unicas categorias existentes no DB sao Headsets e Headphones
 // nao batem com o figma!!!!
@@ -54,10 +57,10 @@ const ExploreProductsPage = () => {
     <div className={styles.container}>
       <div className={styles.navBar}>
         <Link className={styles.back} to="/">
-          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+          <img src={leftIcon} alt="back" />
         </Link>
         <Link className={styles.cart} to="/shopping-cart">
-          <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+          <img src={shoppingCartIcon} alt="shopping cart" />
         </Link>
       </div>
       <div className={styles.titleContainer}>
@@ -65,7 +68,7 @@ const ExploreProductsPage = () => {
         <h2 className={styles.seeAll}>See all products</h2>
       </div>
       <button onClick={() => setOpen(true)} className={styles.filter}>
-        <img className={styles.filterImg} src="/src/assets/sliders-icon.svg" alt="filter" />
+        <img className={styles.filterImg} src={slidersIcon} alt="filter" />
         <p className={styles.filterText}>Filter</p>
       </button>
       <Sheet isOpen={isOpen} onClose={() => setOpen(false)}>

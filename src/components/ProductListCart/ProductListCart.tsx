@@ -2,7 +2,10 @@ import { useContext } from "react";
 import styles from "./ProductListCart.module.css";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
-
+import headphone from "/src/assets/headphone.png";
+import minusIcon from "/src/assets/minus-icon.svg";
+import plusIcon from "/src/assets/plus-icon.svg";
+import trashLight from "/src/assets/trash-light.svg";
 interface ProductListCartPropType {
   productId: number;
   name: string;
@@ -64,7 +67,7 @@ const ProductListCart = ({ productId, name, price, quantity }: ProductListCartPr
   return (
     <div className={styles.productCartContainer}>
       <div className={styles.imgBg}>
-        <img src="/src/assets/headphone.png" alt="product" />
+        <img src={headphone} alt="product" />
       </div>
       <div className={styles.productInfo}>
         <div className={styles.productNamePrice}>
@@ -74,15 +77,15 @@ const ProductListCart = ({ productId, name, price, quantity }: ProductListCartPr
         <div className={styles.counterContainer}>
           <div className={styles.counter}>
             <button className={styles.counterMinus} onClick={() => decrementQuantity()}>
-              <img src="/src/assets/minus-icon.svg" alt="minus" />
+              <img src={minusIcon} alt="minus" />
             </button>
             <p>{quantity}</p>
             <button className={styles.counterPlus} onClick={() => incrementQuantity()}>
-              <img src="/src/assets/plus-icon.svg" alt="plus" />
+              <img src={plusIcon} alt="plus" />
             </button>
           </div>
           <button className={styles.removeItemButton} onClick={() => removeItem()}>
-            <img src="/src/assets/trash-light.svg" alt="delete" />
+            <img src={trashLight} alt="delete" />
           </button>
         </div>
       </div>

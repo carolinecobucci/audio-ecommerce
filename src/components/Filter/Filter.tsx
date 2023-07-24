@@ -1,6 +1,7 @@
 import CarouselCategory from "../CarouselCategory/CarouselCategory";
 import styles from "./Filter.module.css";
 import { CategoryTypes, SortByTypes } from "../ExploreProductsPage/ExploreProductsPage";
+import closeIcon from "/src/assets/close-icon.svg";
 
 interface FilterPropTypes {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,7 +16,7 @@ const Filter = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
         <div className={styles.navBar}>
           <h1 className={styles.filter}>Filter</h1>
           <button className={styles.closeIcon} onClick={() => setOpen(false)}>
-            <img src="/src/assets/close-icon.svg" alt="close" />
+            <img src={closeIcon} alt="close" />
           </button>
         </div>
         <h2 className={styles.titles}>Category</h2>

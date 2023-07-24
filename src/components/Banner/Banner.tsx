@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Banner.module.css";
+import arrowRightIcon from "/src/assets/arrow-right-icon.svg";
+import headphone from "/src/assets/headphone.png";
 
 const Banner = () => {
   return (
@@ -8,10 +10,10 @@ const Banner = () => {
         <h1 className={styles.productName}>TMA-2 Modular Headphone</h1>
         <Link className={styles.shopNow} to="/explore-products">
           <p>Shop now</p>
-          <img src="/src/assets/arrow-right-icon.svg" alt="shop now icon" />
+          <img src={arrowRightIcon} alt="shop now icon" />
         </Link>
       </div>
-      <img src="/src/assets/headphone.png" alt="headphone" />
+      <img src={headphone} alt="headphone" />
     </div>
   );
 };

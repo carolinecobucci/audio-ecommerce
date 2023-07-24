@@ -1,6 +1,9 @@
 import styles from "./ProductGrid.module.css";
 import { Review } from "../CarouselAllProducts/CarouselAllProducts";
 import { Link } from "react-router-dom";
+import headphone from "/src/assets/headphone.png";
+import starFill from "/src/assets/star-fill-icon.svg";
+import moreVerticalIcon from "/src/assets/more-vertical-icon.svg";
 
 interface productPropTypes {
   productId: number;
@@ -20,7 +23,7 @@ const ProductGrid = ({
   return (
     <div className={styles.productGridContainer}>
       <div className={styles.productInfo}>
-        <img className={styles.productImg} src="/src/assets/headphone.png" alt="product" />
+        <img className={styles.productImg} src={headphone} alt="product" />
         <div className={styles.productNamePrice}>
           <h1 className={styles.productName}>{productName}</h1>
           <h2 className={styles.productPrice}>{productPrice}</h2>
@@ -28,12 +31,12 @@ const ProductGrid = ({
       </div>
       <div className={styles.reviewContainer}>
         <div className={styles.starReviews}>
-          <img src="/src/assets/star-fill-icon.svg" alt="star icon" />
+          <img src={starFill} alt="star icon" />
           <p className={styles.rate}>{rate}</p>
         </div>
         <p className={styles.reviewNumber}>{reviewNumber.length} Reviews</p>
         <Link to={`/product-overview/${productId}`}>
-          <img src="/src/assets/more-vertical-icon.svg" alt="see more icon" />
+          <img src={moreVerticalIcon} alt="see more icon" />
         </Link>
       </div>
     </div>

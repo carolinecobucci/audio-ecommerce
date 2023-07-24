@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, ChangeEvent } from "react";
 import axios, { AxiosResponse } from "axios";
 import { ProductType } from "../CarouselAllProducts/CarouselAllProducts";
+import leftIcon from "/src/assets/chevron-left-icon.svg";
+import shoppingCartIcon from "/src/assets/shopping-cart-icon.svg";
 
 const SearchPage = () => {
   const url = "http://localhost:3000/product";
@@ -42,11 +44,11 @@ const SearchPage = () => {
     <div className={styles.container}>
       <div className={styles.navBar}>
         <Link className={styles.back} to="/">
-          <img src="/src/assets/chevron-left-icon.svg" alt="back" />
+          <img src={leftIcon} alt="back" />
         </Link>
         <p className={styles.search}>Search</p>
         <Link className={styles.cart} to="/shopping-cart">
-          <img src="/src/assets/shopping-cart-icon.svg" alt="shopping cart" />
+          <img src={shoppingCartIcon} alt="shopping cart" />
         </Link>
       </div>
       <div>

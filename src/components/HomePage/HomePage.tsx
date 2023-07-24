@@ -9,6 +9,9 @@ import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
 import { CategoryTypes } from "../ExploreProductsPage/ExploreProductsPage";
+import menuIcon from "/src/assets/menu-icon.svg";
+import audioLogo from "/src/assets/audio-logo.svg";
+import user from "/src/assets/user.png";
 
 const HomePage = () => {
   const logout = async (): Promise<void> => {
@@ -42,10 +45,10 @@ const HomePage = () => {
     <div className={styles.container}>
       <div className={styles.navBar}>
         <button className={styles.menuIcon}>
-          <img src="/src/assets/menu-icon.svg" alt="menu icon" />
+          <img src={menuIcon} alt="menu icon" />
         </button>
         <div className={styles.menuLogo}>
-          <img src="/src/assets/audio-logo.svg" alt="audio logo" />
+          <img src={audioLogo} alt="audio logo" />
           Audio
         </div>
         <button
@@ -57,7 +60,7 @@ const HomePage = () => {
           {globalUser?.profilePicture ? (
             <img src={globalUser?.profilePicture} alt="profile picture" />
           ) : (
-            <img src="/src/assets/user.png" alt="profile picture" />
+            <img src={user} alt="profile picture" />
           )}
         </button>
       </div>

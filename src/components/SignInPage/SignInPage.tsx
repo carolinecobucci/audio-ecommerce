@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import facebookIcon from "/src/assets/facebook-icon.svg";
+import googleIcon from "/src/assets/google-icon.svg";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -82,7 +84,7 @@ const SignInPage = () => {
 
         <div className={styles.socialLoginContainer}>
           <button className={styles.socialIcons}>
-            <img src="/src/assets/facebook-icon.svg" alt="facebook icon" />
+            <img src={facebookIcon} alt="facebook icon" />
           </button>
           <div
             onClick={() => {
@@ -90,7 +92,7 @@ const SignInPage = () => {
             }}
             className={styles.socialIcons}
           >
-            <img src="/src/assets/google-icon.svg" alt="google icon" />
+            <img src={googleIcon} alt="google icon" />
           </div>
         </div>
         {signUpFlag ? (
