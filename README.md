@@ -6,7 +6,7 @@ This is the final challenge of the Frontend Development - React scholarship prog
 
 ## Preview
 
-![Logo](/src/assets/read-me-img.png)
+![Logo](/src/assets/audio%20ecommerce%20preview.png)
 
 ## Features
 
