@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import Banner from "../Banner/Banner";
 import CarouselAllProducts from "../CarouselAllProducts/CarouselAllProducts";
 import CarouselCategory from "../CarouselCategory/CarouselCategory";
@@ -8,15 +8,9 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { GlobalUserContext, GlobalUserContextType } from "../../context/GlobalUserContext";
-import { CategoryTypes, SortByTypes } from "../ExploreProductsPage/ExploreProductsPage";
+import { CategoryTypes } from "../ExploreProductsPage/ExploreProductsPage";
 
-interface FilterPropTypes {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setCategory: React.Dispatch<React.SetStateAction<CategoryTypes["category"]>>;
-  setSortBy: React.Dispatch<React.SetStateAction<SortByTypes["sortBy"]>>;
-}
-
-const HomePage = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
+const HomePage = () => {
   const logout = async (): Promise<void> => {
     try {
       await signOut(auth);
@@ -27,6 +21,7 @@ const HomePage = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
   };
   const navigate = useNavigate();
   const { globalUser, setGlobalUser } = useContext<GlobalUserContextType>(GlobalUserContext);
+  const [category, setCategory] = useState<CategoryTypes["category"]>(null);
 
   useEffect(() => {
     if (auth) {
@@ -84,7 +79,7 @@ const HomePage = ({ setOpen, setCategory, setSortBy }: FilterPropTypes) => {
         <CarouselCategory id={"home-page"} setCategory={setCategory} />
         <Banner />
         <div className={styles.featureProductsContainer}>
-          <p className={styles.featureProducts}>Feature Products</p>
+          <p className={styles.featureProducts}>Featured Products</p>
           <Link className={styles.seeAll} to="/explore-products">
             See All
           </Link>

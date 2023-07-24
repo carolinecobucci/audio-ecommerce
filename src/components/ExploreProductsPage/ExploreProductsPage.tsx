@@ -25,6 +25,14 @@ const ExploreProductsPage = () => {
   const [category, setCategory] = useState<CategoryTypes["category"]>(null);
   const [sortBy, setSortBy] = useState<SortByTypes["sortBy"]>(null);
 
+  const filteredByCategory = (
+    productsArray: ProductType[],
+    category: CategoryTypes["category"]
+  ) => {
+    const filteredProducts = productsArray.filter((product) => product.category === category);
+    return filteredProducts;
+  };
+
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
       try {
@@ -41,14 +49,6 @@ const ExploreProductsPage = () => {
 
     void fetchProducts();
   }, [category]);
-
-  const filteredByCategory = (
-    productsArray: ProductType[],
-    category: CategoryTypes["category"]
-  ) => {
-    const filteredProducts = productsArray.filter((product) => product.category === category);
-    return filteredProducts;
-  };
 
   return (
     <div className={styles.container}>
