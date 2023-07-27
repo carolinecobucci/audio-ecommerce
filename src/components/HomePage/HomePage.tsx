@@ -27,12 +27,14 @@ const HomePage = () => {
   const [category, setCategory] = useState<CategoryTypes["category"]>(null);
 
   useEffect(() => {
-    if (auth) {
+    if (auth.currentUser?.displayName) {
       setGlobalUser({
-        username: auth.currentUser!.displayName,
-        profilePicture: auth.currentUser!.photoURL,
+        username: auth.currentUser.displayName,
+        profilePicture: auth.currentUser.photoURL,
         cart: globalUser!.cart,
       });
+    } else {
+      navigate("/sign-in");
     }
   }, []);
 
